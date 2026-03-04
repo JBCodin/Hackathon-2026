@@ -1,3 +1,4 @@
+package io;
 
 // A simple class focused on Data and its structure, without any additional logic or methods.
 public class Song extends AudioItem {
@@ -47,12 +48,12 @@ public class Song extends AudioItem {
     @Override
     public String toString() {
         return "Song{" +
-                "title:'" + getTrackName() + '\'' +
-                ", artist:'" + getArtist() + '\'' +
+                "title:'" + getTrackName() + "'" +
+                ", artist:'" + getArtist() + "'" +
                 ", Explicit:" + getIsExplicit() +
                 ", Artist Popularity:" + getArtistPopularity() +
                 ", Artist Followers:" + getArtistFollowers() +
-                ", Track Popularity:" + getTrackPopularity() + '' +
+                ", Track Popularity:" + getTrackPopularity() +
                 ", Artist Genre:" + getArtistGenre() +
                 '}';
     }

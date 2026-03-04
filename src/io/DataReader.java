@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-Public class DataReader {
+public class DataReader {
 
     // Method to parse the CSV
     public List<Song> readSongsFromFile(String filePath) {
