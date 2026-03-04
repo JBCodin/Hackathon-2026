@@ -65,8 +65,29 @@ Public class DataReader {
             throw new IllegalArgumentException("Line does not contain enough fields: " + line);
         }
 
-        // Extracting fields based on the expected order in the CSV.
-        String trackName = fields[1].trim();
+        // Extracting fields based on the  order in the CSV.
+        String trackName = fields[1].trim();   // track_name
+         int trackPopularity = Integer.parseInt(fields[3].trim()); // track_popularity
+
+        // explicit (adjust depending on how it is stored in your CSV)
+        String explicitRaw = fields[4].trim();
+        boolean isExplicit = Boolean.parseBoolean(explicitRaw); // works if "true"/"false"
+
+        String artistName = fields[5].trim();         // artist_name
+        int artistPopularity = Integer.parseInt(fields[6].trim()); // artist_popularity
+        int artistFollowers = Integer.parseInt(fields[7].trim());  // artist_followers
+        String artistGenre = fields[8].trim();        // artist_genres (keep as single string for now)
+
+    // Build and return the Song object
+    return new Song(
+            trackName,
+            artistName,
+            isExplicit,
+            trackPopularity,
+            artistGenre,
+            artistPopularity,
+            artistFollowers
+    );
 
 
     }
