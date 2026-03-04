@@ -17,14 +17,14 @@ public class App {
 
         Scanner in = new Scanner(System.in);
 
-        System.out.print("Show number of explicit songs? (y/n): ");
+        System.out.print("Would you like to see the number of explicit songs? (y/n): ");
         String answer = in.nextLine().trim().toLowerCase();
 
+        
+        int explicitCount = analyzer.countExplicit(songs);
+        double percent = songs.isEmpty() ? 0.0 : explicitCount * 100.0 / songs.size();
+
         if (answer.equals("y")) {
-            int explicitCount = analyzer.countExplicit(songs);
-            double percent = songs.isEmpty()
-                    ? 0.0
-                    : explicitCount * 100.0 / songs.size();
             System.out.println("Explicit songs: " + explicitCount +
                     " (" + percent + "% of all songs)");
         } else {
@@ -32,11 +32,10 @@ public class App {
         }
 
         in.close();
-        int explicitCount = analyzer.countExplicit(songs);
-        System.out.println("Number of explicit songs: " + explicitCount);
 
+        // always show totals below
+        System.out.println("Number of explicit songs: " + explicitCount);
         if (!songs.isEmpty()) {
-            double percent = explicitCount * 100.0 / songs.size();
             System.out.println("Percent explicit: " + percent + "%");
         }
 
